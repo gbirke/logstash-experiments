@@ -1,0 +1,15 @@
+version: '3'
+services:
+    logstash:
+        image: docker.elastic.co/logstash/logstash:6.5.1
+        environment:
+            - XPACK_MONITORING_ENABLED=false
+        volumes:
+            - ./pipeline:/usr/share/logstash/pipeline
+    filebeat:
+        image: docker.elastic.co/beats/filebeat:6.5.2
+        volumes:
+            - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+            - ./logs:/usr/local/var/log:ro
+        links:
+            - logstash
