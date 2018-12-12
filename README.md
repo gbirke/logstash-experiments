@@ -20,4 +20,9 @@ error_log( "Another entry\n", 3, "logs/test.log" );
 
 ## Check the emails from logstash
 
-The setup uses [MailHog](https://github.com/mailhog/MailHog) to receive and display the emails. You can see the web UI of MailHog at http://localhost:8025 
+The setup uses [MailHog](https://github.com/mailhog/MailHog) to receive and display the emails. You can see the web UI of MailHog at http://localhost:8025
+
+## Next steps
+
+- [ ] Try out throttle filter: Emails for the same message should not be sent more than once per hour (2 minutes for testing)
+- [ ] Create email template
