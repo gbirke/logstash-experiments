@@ -17,3 +17,7 @@ To add a new line from a PHP script, use
 ```php
 error_log( "Another entry\n", 3, "logs/test.log" );
 ```
+
+## Check the emails from logstash
+
+The setup uses [MailHog](https://github.com/mailhog/MailHog) to receive and display the emails. You can see the web UI of MailHog at http://localhost:8025 

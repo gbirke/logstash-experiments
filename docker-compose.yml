@@ -6,6 +6,8 @@ services:
             - XPACK_MONITORING_ENABLED=false
         volumes:
             - ./pipeline:/usr/share/logstash/pipeline
+        links:
+            - mailhog
     filebeat:
         image: docker.elastic.co/beats/filebeat:6.5.2
         volumes:
@@ -13,3 +15,9 @@ services:
             - ./logs:/usr/local/var/log:ro
         links:
             - logstash
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+          - "8025:8025"
+        expose:
+          - "1025"
