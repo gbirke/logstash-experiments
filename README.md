@@ -23,5 +23,9 @@ error_log( "Another entry\n", 3, "logs/test.log" );
 The setup uses [MailHog](https://github.com/mailhog/MailHog) to receive and display the emails. You can see the web UI of MailHog at http://localhost:8025
 
 ## Next steps
-
+- [ ] Set up graylog input and output:
+    - Input for receiving events (and forwarding them to the email output).
+    - output for relaying events that arrive via filebeat to graylog.
+    - The input must add the tag `from_graylog`, the output must drop events have that tag, to avoid circular event passing.
+    - Set up PHP test script (with monolog) to send events to graylog
 - [ ] Create email template
