@@ -24,5 +24,4 @@ The setup uses [MailHog](https://github.com/mailhog/MailHog) to receive and disp
 
 ## Next steps
 
-- [ ] Try out throttle filter: Emails for the same message should not be sent more than once per hour (2 minutes for testing)
 - [ ] Create email template
