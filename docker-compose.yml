@@ -79,11 +79,17 @@ services:
           # GELF UDP
           - 12201:12201/udp
 
-        # kibana:
-        #     image: docker.elastic.co/kibana/kibana:5
-        #     environment:
-        #         - XPACK_MONITORING_ENABLED=false
-        #         - ELASTICSEARCH_URL=elasticsearch
+    kibana:
+        image: docker.elastic.co/kibana/kibana:5.6.14
+        links:
+            - elasticsearch
+        environment:
+            - XPACK_MONITORING_ENABLED=false
+            - XPACK_GRAPH_ENABLED=false
+            - XPACK_REPORTING_ENABLED=false
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        ports:
+            - 5601:5601
 
 volumes:
   mongo_data:
